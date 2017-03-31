@@ -11,7 +11,7 @@
 	<div class="container">
 		@yield('content') 
 	</div>
-	<<script src="{{ asset('pluggins/jquery/js/jquery.js') }}"></script>
-	<<script src="{{ asset('pluggins/bootstrap/js/bootstrap.js') }}"></script>
+	<script src="{{ asset('pluggins/jquery/js/jquery.js') }}"></script>
+	<script src="{{ asset('pluggins/bootstrap/js/bootstrap.js') }}"></script>
 </body>
 </html>
