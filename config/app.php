@@ -148,6 +148,9 @@ return [
         /*provider de LARAVELCOLLECTIVE - leer doc*/
         Collective\Html\HtmlServiceProvider::class,
 
+        /*provuder de SLUGGABLE*/
+        Cviebrock\EloquentSluggable\ServiceProvider::class,
+
     ],
 
     /*
