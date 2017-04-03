@@ -6,7 +6,9 @@
 	<link rel="stylesheet" href="{{ asset('pluggins/bootstrap/css/bootstrap.css') }}">
 </head>
 <body>
-	@include('admin.template.partials.nav')
+	<div class="container">
+		@include('admin.template.partials.nav')
+	</div>
 
 	<div class="container">
 		@yield('content') 

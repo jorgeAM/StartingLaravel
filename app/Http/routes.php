@@ -14,3 +14,8 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+/*routes para el panel de administracion*/
+Route::group(['prefix' => 'admin'], function() {
+    Route::resource('user', 'UserController');
+});
