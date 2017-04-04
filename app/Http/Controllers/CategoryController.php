@@ -89,7 +89,7 @@ class CategoryController extends Controller
         flash('Categoria actualizada con exito!', 'info')->important();
         return redirect()->route('admin.category.index');
     }
-
+    
     /**
      * Remove the specified resource from storage.
      *
