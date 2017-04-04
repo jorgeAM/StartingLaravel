@@ -20,7 +20,7 @@
   					<td>{{ $user->email }}</td>
   					<td>{{ $user->type }}</td>
   					<td>
-  						<a href="" class="btn btn-success">
+  						<a href="{{ route('admin.user.edit', $user->id) }}" onclick="return confirm('Seguro?')" class="btn btn-success">
                 <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
               </a>
   						<a href="{{ route('admin.user.destroy', $user->id) }}" onclick="return confirm('Seguro?')" class="btn btn-danger">
