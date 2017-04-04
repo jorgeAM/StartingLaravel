@@ -89,7 +89,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $user = User::find($id);
+        $user->delete();
+        flash('Usuario borrado con exito!', 'danger')->important();
+        return redirect()->route('admin.user.index');     
     }
 }

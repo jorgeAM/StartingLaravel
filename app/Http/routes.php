@@ -18,4 +18,10 @@ Route::get('/', function () {
 /*routes para el panel de administracion*/
 Route::group(['prefix' => 'admin'], function() {
     Route::resource('user', 'UserController');
+    #por motivos de lso tutoriales haremos el delet con get
+    Route::get('users/{id}/destroy', [
+    	'uses' => 'UserController@destroy',
+    	'as' => 'admin.user.destroy'
+    	]);
+
 });

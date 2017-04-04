@@ -20,13 +20,18 @@
   					<td>{{ $user->email }}</td>
   					<td>{{ $user->type }}</td>
   					<td>
-  						<a href="" class="btn btn-danger"></a>
-  						<a href="" class="btn btn-warning"></a>
+  						<a href="" class="btn btn-success">
+                <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+              </a>
+  						<a href="{{ route('admin.user.destroy', $user->id) }}" onclick="return confirm('Seguro?')" class="btn btn-danger">
+                <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>                    
+              </a>
   					</td>
   				</tr>
 			@endforeach
   		</tbody>
 	</table>
-
-	{!! $users->render() !!}
+  <div class="text-center">
+    {!! $users->render() !!}
+  </div>
 @endsection
