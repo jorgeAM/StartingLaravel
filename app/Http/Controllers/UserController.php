@@ -40,7 +40,15 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        /*validacion*/
+        $this->validate($request, [
+          'name' => 'required|min: 4',
+          'email' => 'required',
+          'password' => 'required|min: 8',
+          'type' => 'required',
+        ]);
+
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
