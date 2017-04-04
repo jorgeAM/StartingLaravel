@@ -11,6 +11,7 @@
 	</div>
 
 	<div class="container">
+		@include('flash::message')
 		@yield('content') 
 	</div>
 	<script src="{{ asset('pluggins/jquery/js/jquery.js') }}"></script>

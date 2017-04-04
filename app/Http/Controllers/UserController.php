@@ -44,7 +44,8 @@ class UserController extends Controller
         $user = new User($request->all());
         $user->password = bcrypt($request->password);
         $user->save();
-        dd($user);
+        flash('Usuario agregado con exito!', 'success')->important();
+        return redirect()->route('admin.user.index');
     }
 
     /**
