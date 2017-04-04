@@ -148,8 +148,11 @@ return [
         /*provider de LARAVELCOLLECTIVE - leer doc*/
         Collective\Html\HtmlServiceProvider::class,
 
-        /*provuder de SLUGGABLE*/
+        /*provider de SLUGGABLE*/
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+
+        /*provider de Flash*/
+        Laracasts\Flash\FlashServiceProvider::class,
 
     ],
 
