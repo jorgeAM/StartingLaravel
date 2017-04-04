@@ -25,5 +25,10 @@ Route::group(['prefix' => 'admin'], function() {
     	]);
     
     Route::resource('category', 'CategoryController');
+    #por motivos de lso tutoriales haremos el delet con get
+    Route::get('categories/{id}/destroy', [
+    	'uses' => 'CategoryController@destroy',
+    	'as' => 'admin.category.destroy'
+    	]);
 
 });
