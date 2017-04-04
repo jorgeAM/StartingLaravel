@@ -3,16 +3,6 @@
 
 @section('content')
 	
-	@if (count($errors) > 0)
-    <div class="alert alert-danger">
-    	<ul>
-        @foreach ($errors->all() as $error)
-        	<li>{{ $error }}</li>
-        @endforeach
-       </ul>
-    </div>
-	@endif
-
 	{!! Form::open(['route'=>'admin.user.store', 'method'=>'POST']) !!}
 		<div class="form-group">
 		{!! Form::label('Nombre', 'Nombre', ['class'=>'col-sm-2 control-label']) !!}

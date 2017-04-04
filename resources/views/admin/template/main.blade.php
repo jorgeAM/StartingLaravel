@@ -12,6 +12,7 @@
 
 	<div class="container">
 		@include('flash::message')
+		@include('admin.template.partials.errors')
 		@yield('content') 
 	</div>
 	<script src="{{ asset('pluggins/jquery/js/jquery.js') }}"></script>
