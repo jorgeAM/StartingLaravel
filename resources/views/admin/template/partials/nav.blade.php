@@ -19,6 +19,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><a href="{{ route('admin.user.index') }}">Usuarios <span class="sr-only">(current)</span></a></li>
           <li><a href="{{ route('admin.category.index') }}">Categorias</a></li>
+          <li><a href="{{ route('admin.tag.index') }}">Tags</a></li>
         </ul>
         <form class="navbar-form navbar-left">
           <div class="form-group">
