@@ -22,21 +22,23 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('users/{id}/destroy', [
     	'uses' => 'UserController@destroy',
     	'as' => 'admin.user.destroy'
-    	]);
+    ]);
     
     Route::resource('category', 'CategoryController');
     #por motivos de los tutoriales haremos el delet con get
     Route::get('categories/{id}/destroy', [
     	'uses' => 'CategoryController@destroy',
     	'as' => 'admin.category.destroy'
-    	]);
+    ]);
 
     Route::resource('tag', 'TagController');
     #por motivos de los tutoriales haremos el delet con get
     Route::get('tags/{id}/destroy', [
         'uses' => 'TagController@destroy',
         'as' => 'admin.tag.destroy'
-        ]);
+    ]);
+
+    Route::resource('article', 'ArticleController');
 
 });
 
