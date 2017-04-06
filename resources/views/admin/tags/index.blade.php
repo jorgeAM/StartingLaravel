@@ -2,7 +2,21 @@
 @section('title', 'Lista de Tags')
 @section('content')
 	
-	<a href="{{route('admin.tag.create')}}" class="btn btn-info">Registrar un nuevo Tag</a><br><br>
+	<a href="{{route('admin.tag.create')}}" class="btn btn-info">Registrar un nuevo Tag</a>
+  <!-- Buscador de Tags -->
+
+  {!! Form::open(['route'=>'admin.tag.index', 'method'=>'GET', 'class' => 'navbar-form pull-right']) !!}
+    <div class="input-group">      
+      {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Buscar tag...', 'aria-describedby' => 'search']) !!}
+      <span class="input-group-addon" id="search">
+        <span class="glyphicon glyphicon-search" aria-hidden="true">
+        </span>
+      </span>
+    </div>
+  {!! Form::close() !!}
+  
+  <!-- Fin buscador de Tags -->    
+  <br><br>
 	<table class="table table-hover">
   		<thead>
   			<th>ID</th>
