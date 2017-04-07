@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Category;
+use Auth;
 use App\Tag;
+use App\Image;
+use App\Article;
+use App\Category;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -18,7 +21,9 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        //
+        /*mandamos la vista*/
+        $articles = Article::all();
+        return view('admin.articles.index');
     }
 
     /**
@@ -49,11 +54,29 @@ class ArticleController extends Controller
             'content' => 'required|min: 20'
         ]);
         /*trabajamos con la imagen*/
-        $file = $request->file('image');
-        $name = 'blog_'.time().'.'.$file->getClientOriginalExtension();
-        $path = public_path().'/images/articles';
-        $file->move($path, $name);
+        if ($request->file('image')) {
+            $file = $request->file('image');
+            $name = 'blog_'.time().'.'.$file->getClientOriginalExtension();
+            $path = public_path().'/images/articles';
+            $file->move($path, $name);
+        }
+        #creamos Article
+        $article = new Article($request->all());
+        $article->user_id = Auth::user()->id;
+        $article->save();
+
+        /*guardamos en la tabla article_tag*/
+        $article->tags()->sync($request->tag_id);
         
+        #guardamos Image
+        $image = new Image();
+        $image->name = $name;
+        //$image->article_id = $article->id;
+        $image->article()->associate($article);
+        $image->save();
+
+        flash('Artículo creado con exito!', 'success')->important();
+        return redirect()->route('admin.article.index');
     }
 
     /**

@@ -20,7 +20,7 @@
 
 		<div class="form-group">
 		{!! Form::label('tag_id', 'Tag', ['class'=>'col-sm-2 control-label']) !!}
-		{!! Form::select('tag_id', $tags, null,  ['class' => 'form-control', 'required']) !!}
+		{!! Form::select('tag_id[]', $tags, null,  ['class' => 'form-control', 'multiple', 'required']) !!}
 		</div>
 
 		<div class="form-group">
