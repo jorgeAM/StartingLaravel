@@ -51,7 +51,10 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title' => 'required|unique:articles|min: 5',
             'category_id' => 'required',
-            'content' => 'required|min: 20'
+            'content' => 'required|min: 20',
+            'user_id' => 'required',
+            'image' => 'required'
+
         ]);
         /*trabajamos con la imagen*/
         if ($request->file('image')) {

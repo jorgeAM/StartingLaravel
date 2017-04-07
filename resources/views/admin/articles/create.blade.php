@@ -15,7 +15,7 @@
 
 		<div class="form-group">
 		{!! Form::label('content', 'Contenido', ['class'=>'col-sm-2 control-label']) !!}
-		{!! Form::textarea('content', null, ['class'=>'form-control', 'placeholder'=>'Aquí va el contenido']) !!}
+		{!! Form::textarea('content', null, ['class'=>'form-control text-area', 'placeholder'=>'Aquí va el contenido']) !!}
 		</div>
 
 		<div class="form-group">
@@ -39,5 +39,7 @@
 		$(".select-tag").chosen({placeholder_text_multiple : "Selecciona uno a varias opciones!"});
 
 		$(".select-category").chosen({placeholder_text_simple : "Selecciona una opción!"});
+
+		$('.text-area').trumbowyg();
 	</script>
 @endsection
