@@ -10,7 +10,7 @@
 
 		<div class="form-group">
 		{!! Form::label('category_id', 'Categoria', ['class'=>'col-sm-2 control-label']) !!}
-		{!! Form::select('category_id', $categories, null,  ['class' => 'form-control', 'required']) !!}
+		{!! Form::select('category_id', $categories, null,  ['class' => 'form-control select-category', 'required']) !!}
 		</div>
 
 		<div class="form-group">
@@ -20,7 +20,7 @@
 
 		<div class="form-group">
 		{!! Form::label('tag_id', 'Tag', ['class'=>'col-sm-2 control-label']) !!}
-		{!! Form::select('tag_id[]', $tags, null,  ['class' => 'form-control', 'multiple', 'required']) !!}
+		{!! Form::select('tag_id[]', $tags, null,  ['class' => 'form-control select-tag', 'multiple', 'required']) !!}
 		</div>
 
 		<div class="form-group">
@@ -32,4 +32,12 @@
 		{!! Form::submit('Agregar', ['class'=>'btn btn-success']) !!}
 		</div>
 	{!! Form::close() !!}
+@endsection
+
+@section('js')
+	<script>
+		$(".select-tag").chosen({placeholder_text_multiple : "Selecciona uno a varias opciones!"});
+
+		$(".select-category").chosen({placeholder_text_simple : "Selecciona una opción!"});
+	</script>
 @endsection
