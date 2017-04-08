@@ -58,7 +58,7 @@ class ArticleController extends Controller
             'title' => 'required|unique:articles|min: 5',
             'category_id' => 'required',
             'content' => 'required|min: 20',
-            'image' => 'required'
+            'image' => 'image|required'
 
         ]);
         /*trabajamos con la imagen*/
