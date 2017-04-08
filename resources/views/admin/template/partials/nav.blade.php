@@ -41,7 +41,8 @@
       @else
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="{{ route('admin.auth.login') }}">Login</a></li>
+          <li><a href="{{ route('user.create') }}">Registrarse</a></li>
+          <li><a href="{{ route('admin.auth.login') }}">Ingresar</a></li>
         </ul>
 
       @endif

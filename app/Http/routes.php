@@ -47,6 +47,17 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
 });
 
+
+/*ruta para que el registro de usuario no requira de authentication*/
+Route::get('user/create',[
+    'uses' => 'UserController@create',
+    'as' => 'user.create']);
+
+Route::post('user',[
+    'uses' => 'UserController@store',
+    'as' => 'user.store']);
+
+
 /*Rutas de autenticación */
 Route::get('admin/auth/login', [
     'uses' => 'Auth\AuthController@getLogin',

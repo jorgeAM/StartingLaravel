@@ -3,7 +3,7 @@
 
 @section('content')
 	
-	{!! Form::open(['route'=>'admin.user.store', 'method'=>'POST']) !!}
+	{!! Form::open(['route'=>'user.store', 'method'=>'POST']) !!}
 		<div class="form-group">
 		{!! Form::label('Nombre', 'Nombre', ['class'=>'col-sm-2 control-label']) !!}
 		{!! Form::text('name', null, ['class'=>'form-control', 'placeholder'=>'Nombre completo']) !!}
