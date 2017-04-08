@@ -40,4 +40,9 @@ class Article extends Model
     public function tags(){
         return $this->belongsToMany('App\Tag');
     }
+
+    /*scope para buscar articles*/
+    public function scopeSearch($query, $title){
+        return $query->where('title', 'LIKE', '%'.$title.'%');
+    } 
 }

@@ -19,11 +19,17 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        /*todos los articles*/
+        $articles = Article::search($request->title)->orderBy('id','DESC')->paginate(5);
+        /*mandamos las relaciones - asi salen en el objeto json*/
+        $articles->each(function($articles){
+            $articles->category;
+            $articles->user;
+        });
         /*mandamos la vista*/
-        $articles = Article::all();
-        return view('admin.articles.index');
+        return view('admin.articles.index')->with('articles', $articles);
     }
 
     /**
@@ -52,7 +58,6 @@ class ArticleController extends Controller
             'title' => 'required|unique:articles|min: 5',
             'category_id' => 'required',
             'content' => 'required|min: 20',
-            'user_id' => 'required',
             'image' => 'required'
 
         ]);
