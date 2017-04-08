@@ -105,8 +105,17 @@ class ArticleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        $article = Article::find($id);
+        $categories = Category::orderBy('name', 'DESC')->lists('name', 'id');
+        $tags = Tag::orderBy('name', 'DESC')->lists('name', 'id');
+
+        $my_tags = $article->tags->lists('id')->toArray();
+        return view('admin.articles.edit')
+        ->with('categories', $categories)
+        ->with('tags', $tags)
+        ->with('article', $article)
+        ->with('my_tags', $my_tags);
     }
 
     /**
@@ -118,7 +127,13 @@ class ArticleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $article = Article::find($id);
+        $article->fill($request->all());
+        $article->save();
+        /*GUARDAMOS LOS TAGS EN TABLA PIVOT*/
+        $article->tags()->sync($request->tag_id);
+        flash('Artículo actualizado con exito!', 'info')->important();
+        return redirect()->route('admin.article.index');
     }
 
     /**
