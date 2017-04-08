@@ -39,6 +39,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     ]);
 
     Route::resource('article', 'ArticleController');
+    #por motivos de los tutoriales haremos el delet con get
+    Route::get('articles/{id}/destroy', [
+        'uses' => 'ArticleController@destroy',
+        'as' => 'admin.article.destroy'
+    ]);
 
 });
 

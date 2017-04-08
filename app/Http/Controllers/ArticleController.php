@@ -95,7 +95,7 @@ class ArticleController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -144,6 +144,9 @@ class ArticleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        flash('Artículo borradp con exito!', 'danger')->important();
+        return redirect()->route('admin.article.index'); 
     }
 }
